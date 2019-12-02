@@ -1,0 +1,110 @@
+{
+	"name": "demo",
+	"displayName": "demo",
+	"description": "a code demo",
+	"version": "0.0.1",
+	"publisher": "ben7th",
+	"engines": {
+		"vscode": "^1.40.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.helloWorld",
+				"title": "Hello World"
+			},
+			{
+				"command": "indexTree.refresh",
+				"title": "刷新",
+				"icon": "icons/refresh.svg"
+			},
+			{
+				"command": "indexTree.openProcessonView",
+				"title": "查看导图",
+				"icon": "icons/view.svg"
+			},
+			{
+				"command": "indexTree.openProcessonEdit",
+				"title": "编辑导图",
+				"icon": "icons/edit.svg"
+			},
+			{
+				"command": "indexTree.openJSON",
+				"title": "打开 JSON",
+				"icon": "icons/json.svg"
+			}
+		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "MRIDev",
+					"title": "MRI 互动开发",
+					"icon": "icons/tree.png"
+				}
+			]
+		},
+		"views": {
+			"MRIDev": [
+				{
+					"id": "indexTree",
+					"name": "MRI 互动索引"
+				}
+			]
+		},
+		"menus": {
+			"view/title": [
+				{
+					"command": "indexTree.refresh",
+					"when": "view == indexTree",
+					"group": "navigation"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "indexTree.openProcessonView",
+					"when": "view == indexTree && viewItem == MRIMapNode",
+					"group": "inline"
+				},
+				{
+					"command": "indexTree.openProcessonEdit",
+					"when": "view == indexTree && viewItem == MRIMapNode",
+					"group": "inline"
+				},
+				{
+					"command": "indexTree.openJSON",
+					"when": "view == indexTree && viewItem == MRIMapNode",
+					"group": "inline"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.40.0",
+		"glob": "^7.1.5",
+		"mocha": "^6.2.2",
+		"typescript": "^3.6.4",
+		"tslint": "^5.20.0",
+		"vscode-test": "^1.2.2"
+	},
+	"dependencies": {
+		"@types/node-fetch": "^2.5.4",
+		"node-fetch": "^2.6.0"
+	}
+}
