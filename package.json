@@ -17,10 +17,6 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
-			},
-			{
 				"command": "indexTree.refresh",
 				"title": "刷新",
 				"icon": "icons/refresh.svg"
@@ -39,6 +35,10 @@
 				"command": "indexTree.openJSON",
 				"title": "打开 JSON",
 				"icon": "icons/json.svg"
+			},
+			{
+				"command": "sibbay.open.mri.json.from.map",
+				"title": "转换思维导图为互动 JSON"
 			}
 		],
 		"viewsContainers": {
